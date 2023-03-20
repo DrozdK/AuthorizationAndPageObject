@@ -22,6 +22,7 @@ public class GridPageTest {
     @Test
     public void shouldCheckOrderAnalystsButton() {
         //given
+        String orderAnalysts = "Order analytics dashboard";
         ArrayList<String> items = new ArrayList<>();
         items.add(ID.getColumn());
         items.add(TYPE.getColumn());
@@ -34,7 +35,7 @@ public class GridPageTest {
         items.add(PRICE_AMOUNT.getColumn());
         //when
         GRID_CONTAINER.shouldBe(visible);
-        ORDER_ANALYTICS_BUTTON.click();
+        openActionButton(orderAnalysts);
         BACK_TO_ORDERS_BUTTON.shouldBe(visible);
         //then
         assertEquals(items, getAnalystsItems());
@@ -50,9 +51,10 @@ public class GridPageTest {
     public void shouldCheckOrderParametersButton() {
         //given
         String modalWindowText = " Order does not have any parameters. ";
+        String orderParameters = "Order parameters";
         //when
         GRID_CONTAINER.shouldBe(visible);
-        ORDER_PARAMETERS_BUTTON.click();
+        openActionButton(orderParameters);
         //then
         PARAMETERS_MODAL_WINDOW.shouldHave(exactText(modalWindowText));
         //when
@@ -61,9 +63,11 @@ public class GridPageTest {
 
     @Test
     public void shouldCheckExecutionReportsButton() {
+        //given
+        String executionReports = "Execution reports";
         //when
         GRID_CONTAINER.shouldBe(visible);
-        EXECUTION_REPORTS_BUTTON.click();
+        openActionButton(executionReports);
         //then
         EXECUTION_REPORT_CONTAINER.shouldBe(visible);
         //when
@@ -72,9 +76,11 @@ public class GridPageTest {
 
     @Test
     public void shouldCheckPDFReportButton() {
+        //given
+        String pdfReport = "PDF report";
         //when
         GRID_CONTAINER.shouldBe(visible);
-        PDF_REPORT_BUTTON.click();
+        openActionButton(pdfReport);
         //then
         SUCCESS_MODAL_WINDOW.shouldBe(visible);
         //when

@@ -23,6 +23,13 @@ public class HistogramPageTest {
         clickToTheButtonMenu(HISTOGRAM.getItem());
     }
 
+    @Test
+    public void shouldCheckHistogramPage() {
+        //then
+        HISTOGRAM_CONTAINER.shouldBe(visible);
+        HISTOGRAM_SETTINGS_CONTAINER.shouldBe(visible);
+    }
+
     static Stream<Arguments> getAttributeParams() {
         return Stream.of(
                 Arguments.of(AVG_FILL_PRICE.getColumn(), AVG_FILL_PRICE.getColumn()),
@@ -52,13 +59,6 @@ public class HistogramPageTest {
                 Arguments.of("25", "25"),
                 Arguments.of("50", "50")
         );
-    }
-
-    @Test
-    public void shouldCheckHistogramPage() {
-        //then
-        HISTOGRAM_CONTAINER.shouldBe(visible);
-        HISTOGRAM_SETTINGS_CONTAINER.shouldBe(visible);
     }
 
     @ParameterizedTest

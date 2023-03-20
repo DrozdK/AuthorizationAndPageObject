@@ -1,11 +1,9 @@
 package enums;
 
 public enum MenuItems {
-    SUMMARY("Summary"),
     GRID("Grid & chart"),
     HISTOGRAM("Histogram"),
-    SCATTER("Scatter-plot"),
-    REPORTS("Reports");
+    SCATTER("Scatter-plot");
 
     private final String item;
 
