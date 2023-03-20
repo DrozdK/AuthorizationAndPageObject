@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Condition.cssValue;
 import static com.codeborne.selenide.Condition.visible;
 import static enums.DashboardItems.*;
 import static enums.Widgets.*;
-import static helpers.Helper.*;
+import static helpers.MainHelper.*;
 import static helpers.SummaryPageHelper.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)

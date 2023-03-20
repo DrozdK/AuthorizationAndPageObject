@@ -8,13 +8,13 @@ import static com.codeborne.selenide.Condition.*;
 import static enums.Columns.*;
 import static enums.MenuItems.GRID;
 import static helpers.GridPageHelper.*;
-import static helpers.Helper.*;
+import static helpers.MainHelper.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class GridPageTest {
 
-    @BeforeEach
-    public void setUp(){
+    @BeforeAll
+    static void setUp(){
         goToTheMainPage();
         clickToTheButtonMenu(GRID.getItem());
     }
@@ -96,7 +96,6 @@ public class GridPageTest {
         columns.add(AVG_FILL_PRICE.getColumn());
         columns.add(EXEC_SIZE.getColumn());
         columns.add(NUM_OF_EXECUTIONS.getColumn());
-        columns.add(PRICE.getColumn());
         //when
         GRID_CONTAINER.shouldBe(visible);
         //then
@@ -104,8 +103,8 @@ public class GridPageTest {
         TOTAL_FIELD.shouldHave(text(text));
     }
 
-    @AfterEach
-    public void tearDown(){
+    @AfterAll
+    static void tearDown(){
         closeBrowser();
     }
 }

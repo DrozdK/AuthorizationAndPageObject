@@ -23,6 +23,7 @@ public enum Columns {
     CURRENCY_CODE("Currency code"),
     SEQUENCE_NUMBER("Sequence number"),
     DB_SEQUENCE_NUMBER("Db sequence number"),
+    PERMANENT_MARKET_IMPACT("Permanent market impact"),
     PRICE("Price"),
     PRICE_AMOUNT("Price imp. (amount)");
 

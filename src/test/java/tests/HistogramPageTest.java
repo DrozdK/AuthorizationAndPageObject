@@ -4,10 +4,11 @@ import org.junit.jupiter.api.*;
 
 import java.util.stream.Stream;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static enums.Columns.*;
 import static enums.MenuItems.*;
-import static helpers.Helper.*;
+import static helpers.MainHelper.*;
 import static helpers.HistogramPageHelper.*;
 
 import org.junit.jupiter.params.ParameterizedTest;
@@ -16,17 +17,10 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 public class HistogramPageTest {
 
-    @BeforeEach
-    public void setUp(){
+    @BeforeAll
+    static void setUp(){
         goToTheMainPage();
         clickToTheButtonMenu(HISTOGRAM.getItem());
-    }
-
-    @Test
-    public void shouldCheckHistogramPage() {
-        //then
-        HISTOGRAM_CONTAINER.shouldBe(visible);
-        HISTOGRAM_SETTINGS_CONTAINER.shouldBe(visible);
     }
 
     static Stream<Arguments> getAttributeParams() {
@@ -51,17 +45,54 @@ public class HistogramPageTest {
         );
     }
 
+    static Stream<Arguments> getIntervalParams() {
+        return Stream.of(
+                Arguments.of("5", "5"),
+                Arguments.of("10", "10"),
+                Arguments.of("25", "25"),
+                Arguments.of("50", "50")
+        );
+    }
+
+    @Test
+    public void shouldCheckHistogramPage() {
+        //then
+        HISTOGRAM_CONTAINER.shouldBe(visible);
+        HISTOGRAM_SETTINGS_CONTAINER.shouldBe(visible);
+    }
+
     @ParameterizedTest
     @MethodSource("getAttributeParams")
     public void shouldChooseAttribute(String value, String expected) {
+        //given
+        String name = "Attribute";
         //when
-        selectAttributeByValue(value);
+        selectByValue(name, value);
         //then
-        getAttributeTitle(expected);
+        HISTOGRAM_NAME.shouldHave(text(expected));
     }
 
-    @AfterEach
-    public void tearDown(){
+    @ParameterizedTest
+    @MethodSource("getIntervalParams")
+    public void shouldChooseInterval(String value, String expected) {
+        //given
+        String name = "Interval";
+        //when
+        selectByValue(name, value);
+        //then
+        getDropDownTitle(expected);
+    }
+
+    @Test
+    public void shouldTableDisplayedWhenClickedOnTheValue() {
+        //when
+        HISTOGRAM_COLUMN.click();
+        //then
+        HISTOGRAM_GRID_TABLE.shouldBe(visible);
+    }
+
+    @AfterAll
+    static void tearDown(){
         closeBrowser();
     }
 }

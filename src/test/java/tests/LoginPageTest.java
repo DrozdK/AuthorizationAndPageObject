@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Condition.*;
 import static enums.Passwords.SELENIUM_PASSWORD;
 import static enums.Usernames.WRONG_USERNAME;
-import static helpers.Helper.*;
+import static helpers.MainHelper.*;
 import static helpers.LoginPageHelper.*;
 
 public class LoginPageTest {
