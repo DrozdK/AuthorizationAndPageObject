@@ -7,13 +7,14 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$x;
+import static constants.Constants.TimeoutVariable.IMPLICIT_WAIT;
 import static helpers.LoginPageHelper.login;
 
 public class MainHelper {
 
     public static void setConfiguration() {
         Configuration.browserCapabilities = new ChromeOptions().addArguments("--remote-allow-origins=*");
-        Configuration.timeout = 60000;
+        Configuration.timeout = IMPLICIT_WAIT;
     }
 
     public static String getUrl() {
