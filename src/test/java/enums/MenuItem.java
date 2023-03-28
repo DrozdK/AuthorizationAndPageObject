@@ -1,13 +1,13 @@
 package enums;
 
-public enum MenuItems {
+public enum MenuItem {
     GRID("Grid & chart"),
     HISTOGRAM("Histogram"),
     SCATTER("Scatter-plot");
 
     private final String item;
 
-    MenuItems(String item) {
+    MenuItem(String item) {
         this.item = item;
     }
 

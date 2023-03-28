@@ -1,6 +1,6 @@
 package enums;
 
-    public enum DashboardItems {
+    public enum DashboardItem {
         DATA_INTERVAL("Data interval "),
         TOTAL_ORDERS("Total orders"),
         TOTAL_WINNING_ORDERS("Total winning orders "),
@@ -8,7 +8,7 @@ package enums;
 
         private final String item;
 
-        DashboardItems(String item) {
+        DashboardItem(String item) {
             this.item = item;
         }
 

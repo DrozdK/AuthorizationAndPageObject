@@ -1,41 +1,41 @@
 package tests;
 
 import com.codeborne.selenide.Selenide;
-import enums.Usernames;
+import enums.Username;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.*;
-import static enums.Passwords.SELENIUM_PASSWORD;
-import static enums.Usernames.WRONG_USERNAME;
+import static enums.Password.SELENIUM_PASSWORD;
+import static enums.Username.WRONG_USERNAME;
 import static helpers.MainHelper.*;
 import static helpers.LoginPageHelper.*;
 
 public class LoginPageTest {
 
     @BeforeEach
-    public void setUp(){
+    public void setUp() {
         setConfiguration();
         Selenide.open(getUrl());
     }
 
     @Test
-    public void shouldButtonBeInactiveWithoutEnterInformation(){
+    public void shouldButtonBeInactiveWithoutEnterInformation() {
         //then
         SUBMIT.shouldHave(attribute("disabled"));
     }
 
     @Test
-    public void shouldButtonBeInactiveWhenOnlyUsernameEnter(){
+    public void shouldButtonBeInactiveWhenOnlyUsernameEnter() {
         //when
-        setUsername(Usernames.MAIN_USERNAME.getUsername());
+        setUsername(Username.MAIN_USERNAME.getUsername());
         //then
         SUBMIT.shouldHave(attribute("disabled"));
     }
 
     @Test
-    public void shouldButtonBeInactiveWhenOnlyPasswordEnter(){
+    public void shouldButtonBeInactiveWhenOnlyPasswordEnter() {
         //when
         setPassword(SELENIUM_PASSWORD.getPassword());
         //then
@@ -68,7 +68,7 @@ public class LoginPageTest {
     }
 
     @AfterEach
-    public void tearDown(){
+    public void tearDown() {
         closeBrowser();
     }
 }

@@ -6,8 +6,8 @@ import java.util.stream.Stream;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
-import static enums.Columns.*;
-import static enums.MenuItems.*;
+import static enums.Column.*;
+import static enums.MenuItem.*;
 import static helpers.MainHelper.*;
 import static helpers.HistogramPageHelper.*;
 
@@ -18,7 +18,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 public class HistogramPageTest {
 
     @BeforeAll
-    static void setUp(){
+    static void setUp() {
         goToTheMainPage();
         clickToTheButtonMenu(HISTOGRAM.getItem());
     }
@@ -92,7 +92,7 @@ public class HistogramPageTest {
     }
 
     @AfterAll
-    static void tearDown(){
+    static void tearDown() {
         closeBrowser();
     }
 }

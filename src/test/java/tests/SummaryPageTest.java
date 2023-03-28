@@ -1,14 +1,15 @@
 package tests;
 
-import enums.Colors;
+import enums.Color;
 import org.junit.jupiter.api.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static com.codeborne.selenide.Condition.cssValue;
 import static com.codeborne.selenide.Condition.visible;
-import static enums.DashboardItems.*;
-import static enums.Widgets.*;
+import static enums.DashboardItem.*;
+import static enums.Widget.*;
 import static helpers.MainHelper.*;
 import static helpers.SummaryPageHelper.*;
 
@@ -16,14 +17,14 @@ import static helpers.SummaryPageHelper.*;
 public class SummaryPageTest {
 
     @BeforeAll
-    public void setUp(){
+    public void setUp() {
         goToTheMainPage();
     }
 
     @Test
     public void shouldHaveAllDashboardItems() {
         //given
-        ArrayList<String> items = new ArrayList<>();
+        List<String> items = new ArrayList<>();
         items.add(DATA_INTERVAL.getItem());
         items.add(TOTAL_ORDERS.getItem());
         items.add(TOTAL_WINNING_ORDERS.getItem());
@@ -37,7 +38,7 @@ public class SummaryPageTest {
     @Test
     public void shouldHaveAllWidgetItems() {
         //given
-        ArrayList<String> widgets = new ArrayList<>();
+        List<String> widgets = new ArrayList<>();
         widgets.add(ORDERS_GRID.getWidget());
         widgets.add(ALGO_PERFORMANCE.getWidget());
         widgets.add(ORDERS_BY_INSTRUMENT_OR_ALGO.getWidget());
@@ -65,15 +66,15 @@ public class SummaryPageTest {
         //then
         DASHBOARD.shouldBe(visible);
         TIMELINE_CONTAINER.shouldBe(visible);
-        getColorSquare(negativeSquare).shouldHave(cssValue("background-color", Colors.RED_COLOR.getColor()));
-        getColorSquare(positiveSquare).shouldHave(cssValue("background-color", Colors.GREEN_COLOR.getColor()));
-        getColorSquare(neutralSquare).shouldHave(cssValue("background-color", Colors.GRAY_COLOR.getColor()));
+        getColorSquare(negativeSquare).shouldHave(cssValue("background-color", Color.RED_COLOR.getColor()));
+        getColorSquare(positiveSquare).shouldHave(cssValue("background-color", Color.GREEN_COLOR.getColor()));
+        getColorSquare(neutralSquare).shouldHave(cssValue("background-color", Color.GRAY_COLOR.getColor()));
         //when
         collapseWidget(ALGO_PERFORMANCE_TIMELINE.getWidget());
     }
 
     @AfterAll
-    public void tearDown(){
+    public void tearDown() {
         closeBrowser();
     }
 }

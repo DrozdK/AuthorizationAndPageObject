@@ -1,12 +1,12 @@
 package enums;
 
-public enum Usernames {
+public enum Username {
     MAIN_USERNAME("selenium_chrome"),
     WRONG_USERNAME("wrong");
 
     private final String username;
 
-    Usernames(String username) {
+    Username(String username) {
         this.username = username;
     }
 

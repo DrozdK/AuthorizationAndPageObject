@@ -8,16 +8,16 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
 
 import static com.codeborne.selenide.Condition.*;
-import static enums.Columns.*;
-import static enums.Columns.PRICE_AMOUNT;
-import static enums.MenuItems.*;
+import static enums.Column.*;
+import static enums.Column.PRICE_AMOUNT;
+import static enums.MenuItem.*;
 import static helpers.MainHelper.*;
 import static helpers.ScatterPlotPageHelper.*;
 
 public class ScatterPlotPageTest {
 
     @BeforeAll
-    static void setUp(){
+    static void setUp() {
         goToTheMainPage();
         clickToTheButtonMenu(SCATTER.getItem());
     }
@@ -126,7 +126,7 @@ public class ScatterPlotPageTest {
     }
 
     @AfterAll
-    static void tearDown(){
+    static void tearDown() {
         closeBrowser();
     }
 }

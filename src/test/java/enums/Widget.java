@@ -1,6 +1,6 @@
 package enums;
 
-public enum Widgets {
+public enum Widget {
     ORDERS_GRID("Orders grid"),
     ALGO_PERFORMANCE("Algo Performance"),
     ORDERS_BY_INSTRUMENT_OR_ALGO("Orders by instrument / algo (top 10)"),
@@ -13,7 +13,7 @@ public enum Widgets {
 
     private final String widget;
 
-    Widgets(String widget) {
+    Widget(String widget) {
         this.widget = widget;
     }
 

@@ -1,6 +1,6 @@
 package enums;
 
-public enum Columns {
+public enum Column {
     ID("Id"),
     TYPE("Type"),
     SIDE("Side"),
@@ -29,7 +29,7 @@ public enum Columns {
 
     private final String column;
 
-    Columns(String column) {
+    Column(String column) {
         this.column = column;
     }
 

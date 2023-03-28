@@ -3,10 +3,11 @@ package tests;
 import org.junit.jupiter.api.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static com.codeborne.selenide.Condition.*;
-import static enums.Columns.*;
-import static enums.MenuItems.GRID;
+import static enums.Column.*;
+import static enums.MenuItem.GRID;
 import static helpers.GridPageHelper.*;
 import static helpers.MainHelper.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -14,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class GridPageTest {
 
     @BeforeAll
-    static void setUp(){
+    static void setUp() {
         goToTheMainPage();
         clickToTheButtonMenu(GRID.getItem());
     }
@@ -23,7 +24,7 @@ public class GridPageTest {
     public void shouldCheckOrderAnalystsButton() {
         //given
         String orderAnalysts = "Order analytics dashboard";
-        ArrayList<String> items = new ArrayList<>();
+        List<String> items = new ArrayList<>();
         items.add(ID.getColumn());
         items.add(TYPE.getColumn());
         items.add(SIDE.getColumn());
@@ -91,7 +92,7 @@ public class GridPageTest {
     public void shouldCheckGridPage() {
         //given
         String text = "Total";
-        ArrayList<String> columns = new ArrayList<>();
+        List<String> columns = new ArrayList<>();
         columns.add(ID.getColumn());
         columns.add(TYPE.getColumn());
         columns.add(INSTRUMENT.getColumn());
@@ -110,7 +111,7 @@ public class GridPageTest {
     }
 
     @AfterAll
-    static void tearDown(){
+    static void tearDown() {
         closeBrowser();
     }
 }

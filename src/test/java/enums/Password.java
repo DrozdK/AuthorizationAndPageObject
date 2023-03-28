@@ -1,11 +1,11 @@
 package enums;
 
-public enum Passwords {
+public enum Password {
     SELENIUM_PASSWORD("Axa@Demo");
 
     private final String password;
 
-    Passwords(String password) {
+    Password(String password) {
         this.password = password;
     }
 
